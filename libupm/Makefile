@@ -96,10 +96,10 @@ define Package/libupm-$(1)
     DEPENDS+=+libupm-interfaces
   endif
   ifeq ($(1),apa102)
-    DEPENDS+=+libupm-interfaces +libupm-utilities
+    DEPENDS+=+libupm-utilities
   endif
   ifeq ($(1),bh1750)
-    DEPENDS+=+libupm-interfaces +libupm-utilities
+    DEPENDS+=+libupm-utilities
   endif
   ifeq ($(1),bma250e)
     DEPENDS+=+libupm-utilities
