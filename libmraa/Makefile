@@ -9,20 +9,22 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libmraa
 PKG_VERSION:=1.9.0
-
-PKG_RELEASE=$(PKG_SOURCE_VERSION)
+PKG_RELEASE=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/intel-iot-devkit/mraa.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=fbb7d9232067eac3f4508a37a8f7ea0c4fcebacb
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_MIRROR_HASH:=104420fc72b80bb6493ddc53014597abc0d455f965ebd6fc7f9be26aa5685ffd
+
 PKG_BUILD_DEPENDS:=node python/host swig/host node/host
 CMAKE_INSTALL:=1
+PKG_USE_MIPS16:=0
 
 PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>
-PKG_LICENSE:=LGPL-2.1
+PKG_LICENSE:=MIT
+PKG_LICENSE_FILES:=COPYING
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
