@@ -28,7 +28,7 @@ PKG_LICENSE_FILES:=LICENSE
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-GET_VER:=$(shell git --git-dir=$(TOPDIR)/.git describe --abbrev=0 --always --tag)
+OW_VER:=$(shell git --git-dir=$(TOPDIR)/.git describe --abbrev=0 --always --tag)
 
 UPM_MODULES:= \
 	a110x abp ad8232 adafruitms1438 adafruitss adc121c021 adis16448 ads1x15 adxl335 adxl345 \
@@ -54,7 +54,7 @@ UPM_MODULES:= \
 	vcap t3311 hwxpxx h803x
 # (require libbacnet) tb7300 t8100 e50hx bacnetmstp
 # (require libmraa firmata) curieimu
-ifeq ($(GET_VER),reboot)
+ifeq ($(OW_VER),reboot)
 UPM_MODULES+=ozw
 endif
 
@@ -73,7 +73,7 @@ define Package/libupm
   $(call Package/libupm/Default)
   TITLE:=Intel IoT sensor library - Full
   DEPENDS+=+libjpeg +libmodbus
-  ifeq ($(GET_VER),reboot)
+  ifeq ($(OW_VER),reboot)
     DEPENDS+=+openzwave
   endif
   DEPENDS+= $(foreach module, $(UPM_MODULES), +libupm-$(module))
@@ -294,7 +294,7 @@ define Package/libupm-$(1)
   ifeq ($(1),t3311)
     DEPENDS+=+libmodbus
   endif
-  ifeq ($(GET_VER),reboot)
+  ifeq ($(OW_VER),reboot)
     ifeq ($(1),ozw)
       DEPENDS+=+openzwave
     endif
