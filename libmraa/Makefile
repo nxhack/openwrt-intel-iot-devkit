@@ -84,13 +84,13 @@ define Package/libmraa-node/install
 endef
 
 define Package/libmraa-python/install
-	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)
+	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)/site-packages
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/* \
 		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/
 endef
 
 define Package/libmraa-python3/install
-	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON3_VERSION)
+	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/* \
 		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/
 endef
