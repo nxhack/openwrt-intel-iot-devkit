@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015 OpenWrt.org
+# Copyright (C) 2015-2018 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libupm
 PKG_VERSION:=1.6.0
-PKG_RELEASE=2
+PKG_RELEASE=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/intel-iot-devkit/upm.git
@@ -27,8 +27,8 @@ PKG_LICENSE_FILES:=LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
-
-OW_VER:=$(shell git --git-dir=$(TOPDIR)/.git describe --abbrev=0 --always --tag)
+include $(TOPDIR)/feeds/packages/lang/python/python-package.mk
+include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
 UPM_MODULES:= \
 	a110x abp ad8232 adafruitms1438 adafruitss adc121c021 adis16448 ads1x15 adxl335 adxl345 \
@@ -51,12 +51,9 @@ UPM_MODULES:= \
 	sx1276 sx6119 t6713 ta12200 tca9548a tcs3414cs tcs37727 teams temperature \
 	tex00 th02 tm1637 tmp006 tsl2561 ttp223 uartat uln200xa ultrasonic urm37 utilities vdiv \
 	veml6070 water waterlevel wfs wheelencoder wt5001 xbee yg1006 zfm20 \
-	vcap t3311 hwxpxx h803x
+	vcap t3311 hwxpxx h803x ozw
 # (require libbacnet) tb7300 t8100 e50hx bacnetmstp
 # (require libmraa firmata) curieimu
-ifeq ($(OW_VER),reboot)
-UPM_MODULES+=ozw
-endif
 
 CMAKE_OPTIONS=-DBUILDARCH=$(CONFIG_ARCH) \
 	-DNODE_EXECUTABLE=$(STAGING_DIR_HOSTPKG)/bin/node \
@@ -72,19 +69,16 @@ endef
 define Package/libupm
   $(call Package/libupm/Default)
   TITLE:=Intel IoT sensor library - Full
-  DEPENDS+=+libjpeg +libmodbus
-  ifeq ($(OW_VER),reboot)
-    DEPENDS+=+openzwave
-  endif
+  DEPENDS+=+libjpeg +libmodbus +openzwave
   DEPENDS+= $(foreach module, $(UPM_MODULES), +libupm-$(module))
 endef
 
 define Package/libupm/install/Default
-	$(INSTALL_DIR) $(1)/usr/lib/{node/,python2.7/site-packages/upm}
+	$(INSTALL_DIR) $(1)/usr/lib/{node/,python$(PYTHON_VERSION)/site-packages/upm}
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupm*-$(2).so* $(1)/usr/lib/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/jsupm_$(2) $(1)/usr/lib/node/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python2.7/site-packages/upm/{pyupm_$(2).py,_pyupm_$(2).so} \
-		$(1)/usr/lib/python2.7/site-packages/upm/ ;
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/{pyupm_$(2).py,_pyupm_$(2).so} \
+		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/ ;
 endef
 
 define Package/libupm/install
@@ -294,10 +288,8 @@ define Package/libupm-$(1)
   ifeq ($(1),t3311)
     DEPENDS+=+libmodbus
   endif
-  ifeq ($(OW_VER),reboot)
-    ifeq ($(1),ozw)
-      DEPENDS+=+openzwave
-    endif
+  ifeq ($(1),ozw)
+    DEPENDS+=+openzwave
   endif
   ifeq ($(1),hwxpxx)
     DEPENDS+=+libmodbus
