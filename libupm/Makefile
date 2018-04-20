@@ -355,10 +355,7 @@ endef
 $(eval $(call BuildPackage,libupm))
 $(foreach module, $(UPM_MODULES), \
 	$(eval $(call UpmPackage,$(module))) \
-	$(eval $(call BuildPackage,libupm-$(module)))
-	$(eval $(call UpmPackage,$(module),node)) \
-	$(eval $(call BuildPackage,libupm-$(module)-node))
-	$(eval $(call UpmPackage,$(module),python)) \
-	$(eval $(call BuildPackage,libupm-$(module)-python))
-	$(eval $(call UpmPackage,$(module),python3)) \
+	$(eval $(call BuildPackage,libupm-$(module))) \
+	$(eval $(call BuildPackage,libupm-$(module)-node)) \
+	$(eval $(call BuildPackage,libupm-$(module)-python)) \
 	$(eval $(call BuildPackage,libupm-$(module)-python3)))
