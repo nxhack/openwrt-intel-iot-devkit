@@ -116,235 +116,235 @@ endef
 
 define UpmPackage
 define UpmPackage/depends
-  ifeq ($(1),adafruitms1438)
+  ifeq ($$(1),adafruitms1438)
     DEPENDS+=+libupm-pca9685
   endif
-  ifeq ($(1),ads1x15)
+  ifeq ($$(1),ads1x15)
     DEPENDS+=+libupm-interfaces
   endif
-  ifeq ($(1),apa102)
+  ifeq ($$(1),apa102)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),bh1750)
+  ifeq ($$(1),bh1750)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),bma250e)
+  ifeq ($$(1),bma250e)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),bmg160)
+  ifeq ($$(1),bmg160)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),bmi160)
+  ifeq ($$(1),bmi160)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),bmm150)
+  ifeq ($$(1),bmm150)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),bmp280)
+  ifeq ($$(1),bmp280)
     DEPENDS+=+libupm-interfaces +libupm-utilities
   endif
-  ifeq ($(1),bmpx8x)
+  ifeq ($$(1),bmpx8x)
     DEPENDS+=+libupm-interfaces +libupm-utilities
   endif
-  ifeq ($(1),bmx055)
+  ifeq ($$(1),bmx055)
     DEPENDS+=+libupm-utilities +libupm-bma250e +libupm-bmg160 +libupm-bmm150
   endif
-  ifeq ($(1),bno055)
+  ifeq ($$(1),bno055)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),buzzer)
+  ifeq ($$(1),buzzer)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),cjq4435)
+  ifeq ($$(1),cjq4435)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),dfrec)
+  ifeq ($$(1),dfrec)
     DEPENDS+=+libupm-utilities +libupm-ds18b20
   endif
-  ifeq ($(1),ds18b20)
+  ifeq ($$(1),ds18b20)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),dfrorp)
+  ifeq ($$(1),dfrorp)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),ds1808lc)
+  ifeq ($$(1),ds1808lc)
     DEPENDS+=+libupm-interfaces
   endif
-  ifeq ($(1),ecezo)
+  ifeq ($$(1),ecezo)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),enc03r)
+  ifeq ($$(1),enc03r)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),guvas12d)
+  ifeq ($$(1),guvas12d)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),hcsr04)
+  ifeq ($$(1),hcsr04)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),hka5)
+  ifeq ($$(1),hka5)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),hlg150h)
+  ifeq ($$(1),hlg150h)
     DEPENDS+=+libupm-interfaces
   endif
-  ifeq ($(1),ims)
+  ifeq ($$(1),ims)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),jhd1313m1)
+  ifeq ($$(1),jhd1313m1)
     DEPENDS+=+libupm-utilities +libupm-lcm1602
   endif
-  ifeq ($(1),lcm1602)
+  ifeq ($$(1),lcm1602)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),lcdks)
+  ifeq ($$(1),lcdks)
     DEPENDS+=+libupm-utilities +libupm-lcm1602
   endif
-  ifeq ($(1),lis2ds12)
+  ifeq ($$(1),lis2ds12)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),lis3dh)
+  ifeq ($$(1),lis3dh)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),lp8860)
+  ifeq ($$(1),lp8860)
     DEPENDS+=+libupm-interfaces
   endif
-  ifeq ($(1),lsm303agr)
+  ifeq ($$(1),lsm303agr)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),lsm303d)
+  ifeq ($$(1),lsm303d)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),lsm6ds3h)
+  ifeq ($$(1),lsm6ds3h)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),lsm6dsl)
+  ifeq ($$(1),lsm6dsl)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),m24lr64e)
+  ifeq ($$(1),m24lr64e)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),max30100)
+  ifeq ($$(1),max30100)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),max44009)
+  ifeq ($$(1),max44009)
     DEPENDS+=+libupm-interfaces
   endif
-  ifeq ($(1),mb704x)
+  ifeq ($$(1),mb704x)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),mcp2515)
+  ifeq ($$(1),mcp2515)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),md)
+  ifeq ($$(1),md)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),mma7361)
+  ifeq ($$(1),mma7361)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),ms5611)
+  ifeq ($$(1),ms5611)
     DEPENDS+=+libupm-interfaces
   endif
-  ifeq ($(1),ms5803)
+  ifeq ($$(1),ms5803)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),my9221)
+  ifeq ($$(1),my9221)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),nmea_gps)
+  ifeq ($$(1),nmea_gps)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),nunchuck)
+  ifeq ($$(1),nunchuck)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),otp538u)
+  ifeq ($$(1),otp538u)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),p9813)
+  ifeq ($$(1),p9813)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),ppd42ns)
+  ifeq ($$(1),ppd42ns)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),rn2903)
+  ifeq ($$(1),rn2903)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),rsc)
+  ifeq ($$(1),rsc)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),servo)
+  ifeq ($$(1),servo)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),sht1x)
+  ifeq ($$(1),sht1x)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),si1132)
+  ifeq ($$(1),si1132)
     DEPENDS+=+libupm-interfaces
   endif
-  ifeq ($(1),si7005)
+  ifeq ($$(1),si7005)
     DEPENDS+=+libupm-interfaces
   endif
-  ifeq ($(1),speaker)
+  ifeq ($$(1),speaker)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),t6713)
+  ifeq ($$(1),t6713)
     DEPENDS+=+libupm-interfaces
   endif
-  ifeq ($(1),tsl2561)
+  ifeq ($$(1),tsl2561)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),uartat)
+  ifeq ($$(1),uartat)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),uln200xa)
+  ifeq ($$(1),uln200xa)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),urm37)
+  ifeq ($$(1),urm37)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),wfs)
+  ifeq ($$(1),wfs)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),zfm20)
+  ifeq ($$(1),zfm20)
     DEPENDS+=+libupm-utilities
   endif
-  ifeq ($(1),vcap)
+  ifeq ($$(1),vcap)
     DEPENDS+=+libjpeg
   endif
-  ifeq ($(1),t3311)
+  ifeq ($$(1),t3311)
     DEPENDS+=+libmodbus
   endif
-  ifeq ($(1),ozw)
+  ifeq ($$(1),ozw)
     DEPENDS+=+openzwave
   endif
-  ifeq ($(1),hwxpxx)
+  ifeq ($$(1),hwxpxx)
     DEPENDS+=+libmodbus
   endif
-  ifeq ($(1),h803x)
+  ifeq ($$(1),h803x)
     DEPENDS+=+libmodbus
   endif
 endef
 
 define Package/libupm-$(1)
   $(call Package/libupm/Default)
-  $(call UpmPackage/depends,$$(1))
+  $(call UpmPackage/depends,$(1))
   TITLE:=Intel IoT sensor library - $(1)
 endef
 define Package/libupm-$(1)-node
   $(call Package/libupm/Default)
-  $(call UpmPackage/depends,$$(1))
+  $(call UpmPackage/depends,$(1))
   TITLE:=Intel IoT sensor Node.js - $(1)
   DEPENDS+=+libupm-$(1) +libmraa-node +node
 endef
 define Package/libupm-$(1)-python
   $(call Package/libupm/Default)
-  $(call UpmPackage/depends,$$(1))
+  $(call UpmPackage/depends,$(1))
   TITLE:=Intel IoT sensor Python - $(1)
   DEPENDS+=libupm-$(1) +libmraa-python +python-light
 endef
 define Package/libupm-$(1)-python3
   $(call Package/libupm/Default)
-  $(call UpmPackage/depends,$$(1))
+  $(call UpmPackage/depends,$(1))
   TITLE:=Intel IoT sensor Python3 - $(1)
   DEPENDS+=libupm-$(1) +libmraa-python3 +python3-light
 endef
