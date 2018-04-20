@@ -74,22 +74,37 @@ define Package/libupm
 endef
 
 define Package/libupm/install/Default
-	$(INSTALL_DIR) $(1)/usr/lib/{node/,python$(PYTHON_VERSION)/site-packages/upm}
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupm*-$(2).so* $(1)/usr/lib/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/jsupm_$(2) $(1)/usr/lib/node/
+	$(INSTALL_DIR) $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupm*-$(2).so* $(1)/usr/lib/ ;
+endef
+
+define Package/libupm/install/Default-node
+	$(INSTALL_DIR) $(1)/usr/lib/node/upm
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/jsupm_$(2) $(1)/usr/lib/node/upm/ ;
+endef
+
+define Package/libupm/install/Default-python
+	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/{pyupm_$(2).py,_pyupm_$(2).so} \
 		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/ ;
 endef
 
+define Package/libupm/install/Default-python3
+	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/{pyupm_$(2).py,_pyupm_$(2).so} \
+		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/ ;
+endef
+
 define Package/libupm/install
 	$(foreach module, $(UPM_MODULES), \
-		$(call Package/libupm/install/Default,$(1),$(module)))
+		$(call Package/libupm/install/Default,$(1),$(module))
+		$(call Package/libupm/install/Default-ndoe,$(1),$(module))
+		$(call Package/libupm/install/Default-python,$(1),$(module))
+		$(call Package/libupm/install/Default=python3,$(1),$(module))))
 endef
 
 define UpmPackage
-define Package/libupm-$(1)
-  $(call Package/libupm/Default)
-  TITLE:=Intel IoT sensor library - $(1)
+define UpmPackage/depends
   ifeq ($(1),adafruitms1438)
     DEPENDS+=+libupm-pca9685
   endif
@@ -299,12 +314,51 @@ define Package/libupm-$(1)
   endif
 endef
 
+define Package/libupm-$(1)
+  $(call Package/libupm/Default)
+  $(call UpmPackage/depends,$$(1))
+  TITLE:=Intel IoT sensor library - $(1)
+endef
+define Package/libupm-$(1)-node
+  $(call Package/libupm/Default)
+  $(call UpmPackage/depends,$$(1))
+  TITLE:=Intel IoT sensor Node.js library - $(1)
+  DEPENDS+=+libmraa-node +node
+endef
+define Package/libupm-$(1)-python
+  $(call Package/libupm/Default)
+  $(call UpmPackage/depends,$$(1))
+  TITLE:=Intel IoT sensor Python library - $(1)
+  DEPENDS+=+libmraa-python +python-light
+endef
+define Package/libupm-$(1)-python3
+  $(call Package/libupm/Default)
+  $(call UpmPackage/depends,$$(1))
+  TITLE:=Intel IoT sensor Python3 library - $(1)
+  DEPENDS+=+libmraa-python3 +python3-light
+endef
+
 define Package/libupm-$(1)/install
 	$(call Package/libupm/install/Default,$$(1),$(1))
+endef
+define Package/libupm-$(1)-node/install
+	$(call Package/libupm/install/Default-node,$$(1),$(1))
+endef
+define Package/libupm-$(1)-python/install
+	$(call Package/libupm/install/Default-python,$$(1),$(1))
+endef
+define Package/libupm-$(1)-python3/install
+	$(call Package/libupm/install/Default-python3,$$(1),$(1))
 endef
 endef
 
 $(eval $(call BuildPackage,libupm))
 $(foreach module, $(UPM_MODULES), \
 	$(eval $(call UpmPackage,$(module))) \
-	$(eval $(call BuildPackage,libupm-$(module))))
+	$(eval $(call BuildPackage,libupm-$(module)))
+	$(eval $(call UpmPackage,$(module),node)) \
+	$(eval $(call BuildPackage,libupm-$(module)-node))
+	$(eval $(call UpmPackage,$(module),python)) \
+	$(eval $(call BuildPackage,libupm-$(module)-python))
+	$(eval $(call UpmPackage,$(module),python3)) \
+	$(eval $(call BuildPackage,libupm-$(module)-python3)))
