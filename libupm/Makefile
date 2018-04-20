@@ -327,24 +327,24 @@ endef
 
 define Package/libupm-$(1)
   $(call Package/libupm/Default)
-  $(call UpmPackage/depends,$$(1))
+  $(call UpmPackage/depends,$(1))
   TITLE:=Intel IoT sensor library - $(1)
 endef
 define Package/libupm-$(1)-node
   $(call Package/libupm/Default)
-  $(call UpmPackage/depends,$$(1))
+  $(call UpmPackage/depends,$(1))
   TITLE:=Intel IoT sensor Node.js - $(1)
   DEPENDS+=+libmraa-node +node
 endef
 define Package/libupm-$(1)-python
   $(call Package/libupm/Default)
-  $(call UpmPackage/depends,$$(1))
+  $(call UpmPackage/depends,$(1))
   TITLE:=Intel IoT sensor Python - $(1)
   DEPENDS+=+libmraa-python +python-light
 endef
 define Package/libupm-$(1)-python3
   $(call Package/libupm/Default)
-  $(call UpmPackage/depends,$$(1))
+  $(call UpmPackage/depends,$(1))
   TITLE:=Intel IoT sensor Python3 - $(1)
   DEPENDS+=+libmraa-python3 +python3-light
 endef
