@@ -78,28 +78,36 @@ endef
 
 define Package/libupm/install/Default
 	$(INSTALL_DIR) $(1)/usr/lib/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupm*-$(2).so* $(1)/usr/lib/ ;
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupm*-$(2).so* $(1)/usr/lib/
+	;
 endef
 
 define Package/libupm/install/Default-node
 	$(INSTALL_DIR) $(1)/usr/lib/node/upm
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/jsupm_$(2) $(1)/usr/lib/node/upm/ ;
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/jsupm_$(2) $(1)/usr/lib/node/upm/
+	;
 endef
 
 define Package/libupm/install/Default-python
 	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/{pyupm_$(2).py,_pyupm_$(2).so} \
-		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/ ;
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/pyupm_$(2).py \
+		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/_pyupm_$(2).so \
+		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/
+	;
 endef
 
 define Package/libupm/install/Default-python3
 	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/{pyupm_$(2).py,_pyupm_$(2).so} \
-		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/ ;
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/pyupm_$(2).py \
+		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/_pyupm_$(2).so \
+		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/
+	;
 endef
 
 define Package/libupm/install
-	$(foreach module, $(UPM_MODULES), \
+	$(foreach module, $(UPM_MODULES),
 		$(call Package/libupm/install/Default,$(1),$(module))
 		$(call Package/libupm/install/Default-ndoe,$(1),$(module))
 		$(call Package/libupm/install/Default-python,$(1),$(module))
@@ -356,9 +364,9 @@ endef
 endef
 
 $(eval $(call BuildPackage,libupm))
-$(foreach module, $(UPM_MODULES), \
-	$(eval $(call UpmPackage,$(module))) \
-	$(eval $(call BuildPackage,libupm-$(module))) \
-	$(eval $(call BuildPackage,libupm-$(module)-node)) \
-	$(eval $(call BuildPackage,libupm-$(module)-python)) \
+$(foreach module, $(UPM_MODULES),
+	$(eval $(call UpmPackage,$(module)))
+	$(eval $(call BuildPackage,libupm-$(module)))
+	$(eval $(call BuildPackage,libupm-$(module)-node))
+	$(eval $(call BuildPackage,libupm-$(module)-python))
 	$(eval $(call BuildPackage,libupm-$(module)-python3)))
