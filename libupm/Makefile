@@ -111,7 +111,7 @@ define Package/libupm/install
 		$(call Package/libupm/install/Default,$(1),$(module)) \
 		$(call Package/libupm/install/Default-node,$(1),$(module)) \
 		$(call Package/libupm/install/Default-python,$(1),$(module)) \
-		$(call Package/libupm/install/Default=python3,$(1),$(module)))
+		$(call Package/libupm/install/Default-python3,$(1),$(module)))
 endef
 
 define UpmPackage
