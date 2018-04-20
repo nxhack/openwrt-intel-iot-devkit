@@ -51,8 +51,8 @@ endef
 
 define Package/libmraa
   $(call Package/libmraa/Default)
-  TITLE:=Intel IoT lowlevel IO C and C++ library
-  DEPENDS:=+libstdcpp +libjson-c
+  TITLE:=Intel IoT lowlevel IO C library
+  DEPENDS:=+libjson-c
 endef
 
 define Package/libmraa-node
@@ -76,6 +76,8 @@ endef
 define Package/libmraa/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/libmraa.so* $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/mraa-* $(1)/usr/bin/
 endef
 
 define Package/libmraa-node/install
