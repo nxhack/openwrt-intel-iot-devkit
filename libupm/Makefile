@@ -107,10 +107,10 @@ define Package/libupm/install/Default-python3
 endef
 
 define Package/libupm/install
-	$(foreach module, $(UPM_MODULES),
-		$(call Package/libupm/install/Default,$(1),$(module))
-		$(call Package/libupm/install/Default-ndoe,$(1),$(module))
-		$(call Package/libupm/install/Default-python,$(1),$(module))
+	$(foreach module, $(UPM_MODULES), \
+		$(call Package/libupm/install/Default,$(1),$(module)) \
+		$(call Package/libupm/install/Default-ndoe,$(1),$(module)) \
+		$(call Package/libupm/install/Default-python,$(1),$(module)) \
 		$(call Package/libupm/install/Default=python3,$(1),$(module))))
 endef
 
@@ -364,9 +364,9 @@ endef
 endef
 
 $(eval $(call BuildPackage,libupm))
-$(foreach module, $(UPM_MODULES),
-	$(eval $(call UpmPackage,$(module)))
-	$(eval $(call BuildPackage,libupm-$(module)))
-	$(eval $(call BuildPackage,libupm-$(module)-node))
-	$(eval $(call BuildPackage,libupm-$(module)-python))
+$(foreach module, $(UPM_MODULES), \
+	$(eval $(call UpmPackage,$(module))) \
+	$(eval $(call BuildPackage,libupm-$(module))) \
+	$(eval $(call BuildPackage,libupm-$(module)-node)) \
+	$(eval $(call BuildPackage,libupm-$(module)-python)) \
 	$(eval $(call BuildPackage,libupm-$(module)-python3)))
