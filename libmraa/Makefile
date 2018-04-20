@@ -55,10 +55,22 @@ define Package/libmraa
   DEPENDS:=+libstdcpp +libjson-c
 endef
 
+define Package/libmraa/description
+$(call Package/libmraa/Default/description)
+
+This package contains the C libraries.
+endef
+
 define Package/libmraa-node
   $(call Package/libmraa/Default)
   TITLE:=Intel IoT lowlevel IO Node.js library
   DEPENDS:=+libmraa +node
+endef
+
+define Package/libmraa-node/description
+$(call Package/libmraa/Default/description)
+
+This package contains the Node.js libraries.
 endef
 
 define Package/libmraa-python
@@ -67,10 +79,22 @@ define Package/libmraa-python
   DEPENDS:=+libmraa +python-light
 endef
 
+define Package/libmraa-python/description
+$(call Package/libmraa/Default/description)
+
+This package contains the Python libraries.
+endef
+
 define Package/libmraa-python3
   $(call Package/libmraa/Default)
   TITLE:=Intel IoT lowlevel IO Python3 library
   DEPENDS:=+libmraa +python3-light
+endef
+
+define Package/libmraa-python3/description
+$(call Package/libmraa/Default/description)
+
+This package contains the Python3 libraries.
 endef
 
 define Package/libmraa/install

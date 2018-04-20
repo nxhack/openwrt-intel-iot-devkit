@@ -76,6 +76,10 @@ define Package/libupm
   DEPENDS+= $(foreach module, $(UPM_MODULES), +libupm-$(module)-python3)
 endef
 
+define Package/libupm/description
+  UPM is a high level repository that provides software drivers for a wide variety of commonly used sensors and actuators. These software drivers interact with the underlying hardware platform through calls to MRAA APIs.
+endef
+
 define Package/libupm/install/Default
 	$(INSTALL_DIR) $(1)/usr/lib/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libupm*-$(2).so* $(1)/usr/lib/
