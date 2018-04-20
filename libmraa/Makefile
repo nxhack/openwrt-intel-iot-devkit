@@ -99,25 +99,25 @@ endef
 
 define Package/libmraa/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/libmraa.so* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libmraa.so* $(1)/usr/lib/
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/mraa-* $(1)/usr/bin/
 endef
 
 define Package/libmraa-node/install
 	$(INSTALL_DIR) $(1)/usr/lib/node/mraa
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/node_modules/mraa/* $(1)/usr/lib/node/mraa/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/mraa/* $(1)/usr/lib/node/mraa/
 endef
 
 define Package/libmraa-python/install
 	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)/site-packages
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/* \
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/* \
 		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/
 endef
 
 define Package/libmraa-python3/install
 	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/* \
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/* \
 		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/
 endef
 
