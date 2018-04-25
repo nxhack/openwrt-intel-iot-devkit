@@ -41,6 +41,7 @@ TARGET_CFLAGS+=-I$(STAGING_DIR)/usr/include/node
 define Package/libmraa/Default
   SECTION:=libs
   CATEGORY:=Libraries
+  SUBMENU:=IoT
   TITLE:=Intel IoT lowlevel IO library
   URL:=https://github.com/intel-iot-devkit/mraa
 endef

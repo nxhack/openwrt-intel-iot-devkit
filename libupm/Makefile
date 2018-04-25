@@ -62,8 +62,9 @@ CMAKE_OPTIONS=-DBUILDARCH=$(CONFIG_ARCH) \
 define Package/libupm/Default
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=+libmraa +librt
   SUBMENU:=IoT
+  URL:=https://github.com/intel-iot-devkit/upm
+  DEPENDS:=+libmraa +librt
 endef
 
 define Package/libupm
