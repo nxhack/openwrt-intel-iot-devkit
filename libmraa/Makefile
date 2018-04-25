@@ -39,7 +39,6 @@ TARGET_CFLAGS+=-I$(STAGING_DIR)/usr/include/node
 define Package/libmraa
   SECTION:=libs
   CATEGORY:=Libraries
-  SUBMENU:=IoT
   DEPENDS:=+python +libstdcpp +libjson-c
   TITLE:=Intel IoT lowlevel IO library
 endef
