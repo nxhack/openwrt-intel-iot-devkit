@@ -329,7 +329,7 @@ endef
 define Package/libupm-$(1)
   $(call Package/libupm/Default)
   $(call UpmPackage/depends,$(1))
-  TITLE:=Intel IoT sensor library - $(1)
+  TITLE:=Intel IoT sensor C/C++ library - $(1)
 endef
 define Package/libupm-$(1)-node
   $(call Package/libupm/Default)
