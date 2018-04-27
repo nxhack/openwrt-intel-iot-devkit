@@ -69,6 +69,7 @@ endef
 
 define Package/libupm/Default/description
   UPM is a high level repository that provides software drivers for a wide variety of commonly used sensors and actuators. These software drivers interact with the underlying hardware platform through calls to MRAA APIs.
+  MRAA that allows you to use various sensors on platforms such as the Intel Galileo, Intel Edison, Minnowboard MAX and others.
 endef
 
 define Package/libupm
