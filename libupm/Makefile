@@ -21,7 +21,7 @@ PKG_MIRROR_HASH:=26bc9c32eea0b8aa6218735e30a3d2317431518f0b2a055c0f21e78e6d92ca4
 CMAKE_INSTALL:=1
 PKG_USE_MIPS16:=0
 
-PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>
+PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>, Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
 
