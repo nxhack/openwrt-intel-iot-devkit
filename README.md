@@ -15,7 +15,6 @@ src-git inteliot https://github.com/nxhack/openwrt-intel-iot-devkit.git
 Run
 ```
 ./scripts/feeds update inteliot
-rm ./package/feeds/packages/swig
 rm ./package/feeds/packages/libmraa
 rm ./package/feeds/packages/libupm
 ./scripts/feeds install -a -p inteliot
