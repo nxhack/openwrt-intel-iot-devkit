@@ -84,7 +84,7 @@ endef
 define Package/libupm/description
 $(call Package/libupm/Default/description)
 
-This package contains sensor libraries - Full
+This package contains sensor libraries
 endef
 
 define Package/libupm/install/Default
@@ -341,7 +341,7 @@ endef
 define Package/libupm-$(1)/description
 $(call Package/libupm/Default/description)
 
-This package contains sensor C/C++ library - $(1)
+This package contains $(1) sensor C/C++ library
 endef
 
 define Package/libupm-$(1)-node
@@ -354,7 +354,7 @@ endef
 define Package/libupm-$(1)-node/description
 $(call Package/libupm/Default/description)
 
-This package contains sensor Node.js library - $(1)
+This package contains $(1) sensor Node.js library
 endef
 
 define Package/libupm-$(1)-python
@@ -367,7 +367,7 @@ endef
 define Package/libupm-$(1)-python/description
 $(call Package/libupm/Default/description)
 
-This package contains sensor Python library - $(1)
+This package contains $(1) sensor Python library
 endef
 
 define Package/libupm-$(1)-python3
@@ -380,7 +380,7 @@ endef
 define Package/libupm-$(1)-python3/description
 $(call Package/libupm/Default/description)
 
-This package contains sensor Python3 library - $(1)
+This package contains $(1) sensor Python3 library
 endef
 
 define Package/libupm-$(1)/install
