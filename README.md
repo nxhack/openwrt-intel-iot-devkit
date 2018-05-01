@@ -2,7 +2,7 @@
 [Intel® IoT Developer Kit](https://github.com/intel-iot-devkit) packages for OpenWrt
 
 ## Description
-These support the latest version of node.js.
+These support the latest version of node.js. (for OpenWrt LEDE-17.01 branch)
 
 ## Usage
 Replace OpenWrt official packages.
