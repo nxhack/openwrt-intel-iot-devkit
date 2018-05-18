@@ -68,8 +68,11 @@ define Package/libupm/Default
 endef
 
 define Package/libupm/Default/description
-  UPM is a high level repository that provides software drivers for a wide variety of commonly used sensors and actuators. These software drivers interact with the underlying hardware platform through calls to MRAA APIs.
-  MRAA that allows you to use various sensors on platforms such as the Intel Galileo, Intel Edison, Minnowboard MAX and others.
+  UPM is a high level repository that provides software drivers for a wide variety
+of commonly used sensors and actuators. These software drivers interact with the
+underlying hardware platform through calls to MRAA APIs.
+  MRAA that allows you to use various sensors on platforms such as the Intel Galileo,
+Intel Edison, Minnowboard MAX and others.
 endef
 
 define Package/libupm
@@ -336,7 +339,7 @@ endef
 define Package/libupm-$(1)
   $(call Package/libupm/Default)
   $(call UpmPackage/depends,$(1))
-  TITLE:=Intel IoT sensor C/C++ library - $(1)
+  TITLE:=Sensor C/C++ library - $(1)
 endef
 
 define Package/libupm-$(1)/description
@@ -348,7 +351,7 @@ endef
 define Package/libupm-$(1)-node
   $(call Package/libupm/Default)
   $(call UpmPackage/depends,$(1))
-  TITLE:=Intel IoT sensor Node.js - $(1)
+  TITLE:=Sensor Node.js - $(1)
   DEPENDS+=+libupm-$(1) +libmraa-node +node
 endef
 
@@ -361,7 +364,7 @@ endef
 define Package/libupm-$(1)-python
   $(call Package/libupm/Default)
   $(call UpmPackage/depends,$(1))
-  TITLE:=Intel IoT sensor Python - $(1)
+  TITLE:=Sensor Python - $(1)
   DEPENDS+=+libupm-$(1) +libmraa-python +python-light
 endef
 
@@ -374,7 +377,7 @@ endef
 define Package/libupm-$(1)-python3
   $(call Package/libupm/Default)
   $(call UpmPackage/depends,$(1))
-  TITLE:=Intel IoT sensor Python3 - $(1)
+  TITLE:=Sensor Python3 - $(1)
   DEPENDS+=+libupm-$(1) +libmraa-python3 +python3-light
 endef
 
