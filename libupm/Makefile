@@ -77,7 +77,7 @@ endef
 
 define Package/libupm
   $(call Package/libupm/Default)
-  TITLE:=Intel IoT sensor driver library - Full
+  TITLE:=Intel IoT sensor library - Full
   DEPENDS+=+libjpeg +libmodbus +openzwave
   DEPENDS+= $(foreach module, $(UPM_MODULES), +libupm-$(module))
   DEPENDS+= $(foreach module, $(UPM_MODULES), +libupm-$(module)-node)
@@ -339,7 +339,7 @@ endef
 define Package/libupm-$(1)
   $(call Package/libupm/Default)
   $(call UpmPackage/depends,$(1))
-  TITLE:=$(1) C/C++ driver
+  TITLE:=$(1) C/C++ library
 endef
 
 define Package/libupm-$(1)/description
@@ -351,7 +351,7 @@ endef
 define Package/libupm-$(1)-node
   $(call Package/libupm/Default)
   $(call UpmPackage/depends,$(1))
-  TITLE:=$(1) Node.js driver
+  TITLE:=$(1) Node.js library
   DEPENDS+=+libupm-$(1) +libmraa-node +node
 endef
 
@@ -364,7 +364,7 @@ endef
 define Package/libupm-$(1)-python
   $(call Package/libupm/Default)
   $(call UpmPackage/depends,$(1))
-  TITLE:=$(1) Python driver
+  TITLE:=$(1) Python library
   DEPENDS+=+libupm-$(1) +libmraa-python +python-light
 endef
 
@@ -377,7 +377,7 @@ endef
 define Package/libupm-$(1)-python3
   $(call Package/libupm/Default)
   $(call UpmPackage/depends,$(1))
-  TITLE:=$(1) Python3 driver
+  TITLE:=$(1) Python3 library
   DEPENDS+=+libupm-$(1) +libmraa-python3 +python3-light
 endef
 
