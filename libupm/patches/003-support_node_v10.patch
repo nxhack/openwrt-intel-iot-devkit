@@ -1,0 +1,14 @@
+--- a/src/upm.i
++++ b/src/upm.i
+@@ -27,8 +27,10 @@
+      */
+ #if (SWIG_V8_VERSION < 0x032838)
+     while (!v8::V8::IdleNotification())
+-#else
++#elif (SWIG_V8_VERSION < 0x032846)
+     while (!v8::Isolate::GetCurrent()->IdleNotification(1000))
++#else
++    while (!v8::Isolate::GetCurrent()->IdleNotificationDeadline(1.0))
+ #endif
+     {;}
+ }
