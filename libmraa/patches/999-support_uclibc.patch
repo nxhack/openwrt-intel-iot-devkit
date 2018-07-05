@@ -1,0 +1,11 @@
+--- a/src/mips/mips.c
++++ b/src/mips/mips.c
+@@ -23,6 +23,8 @@
+  */
+ 
+ #include <stdlib.h>
++#define __USE_GNU
++#include <stdio.h>
+ #include <string.h>
+ 
+ #include "mraa_internal.h"
