@@ -54,7 +54,7 @@ UPM_MODULES:= \
 	vcap t3311 hwxpxx h803x
 # (require libbacnet) tb7300 t8100 e50hx bacnetmstp
 # (require libmraa firmata) curieimu
-ifeq ($(OW_VER),reboot)
+ifneq ($(filter reboot v18.06%, $(OW_VER)),)
 UPM_MODULES+=ozw
 endif
 
@@ -73,7 +73,7 @@ define Package/libupm
   $(call Package/libupm/Default)
   TITLE:=Intel IoT sensor library - Full
   DEPENDS+=+libjpeg +libmodbus
-  ifeq ($(OW_VER),reboot)
+  ifneq ($(filter reboot v18.06%, $(OW_VER)),)
     DEPENDS+=+openzwave
   endif
   DEPENDS+= $(foreach module, $(UPM_MODULES), +libupm-$(module))
@@ -294,7 +294,7 @@ define Package/libupm-$(1)
   ifeq ($(1),t3311)
     DEPENDS+=+libmodbus
   endif
-  ifeq ($(OW_VER),reboot)
+  ifneq ($(filter reboot v18.06%, $(OW_VER)),)
     ifeq ($(1),ozw)
       DEPENDS+=+openzwave
     endif
