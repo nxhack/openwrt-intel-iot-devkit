@@ -1,0 +1,27 @@
+From 85608a9f618453522b673b9537fb4ec6b2a9d248 Mon Sep 17 00:00:00 2001
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Date: Mon, 17 Sep 2018 23:12:45 +0530
+Subject: [PATCH] led: Update LED init API
+
+mraa_led_init API expects led number. So, replace it with
+mraa_led_init_raw for initializing an LED based on label.
+
+Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Signed-off-by: Mihai Tudor Panu <mihai.tudor.panu@intel.com>
+---
+ src/led/led.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/led/led.c b/src/led/led.c
+index 2f39e9f07..d593141b5 100644
+--- a/src/led/led.c
++++ b/src/led/led.c
+@@ -76,7 +76,7 @@ led_context led_init_str(const char* name){
+     dev->gpio = NULL;
+ 
+     dev->name = name;
+-    dev->gpioled = mraa_led_init(name);
++    dev->gpioled = mraa_led_init_raw(name);
+ 
+     if (!dev->gpioled) {
+         printf("%s: Unable to initialize gpioled device (%s).\n", __FUNCTION__, dev->name);

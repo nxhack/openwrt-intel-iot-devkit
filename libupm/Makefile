@@ -8,15 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libupm
-PKG_VERSION:=1.6.0
+PKG_VERSION:=1.7.0
 PKG_RELEASE=1
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/intel-iot-devkit/upm.git
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=cc7fec9ae0228add9011bf1c2cd5e0ca2ba0d4f0
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
-PKG_MIRROR_HASH:=26bc9c32eea0b8aa6218735e30a3d2317431518f0b2a055c0f21e78e6d92ca4f
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://codeload.github.com/intel-iot-devkit/upm/tar.gz/v$(PKG_VERSION)?
+PKG_HASH:=66ac1a869b0b06144a3ebe96c20b2e4195ec9c1879d14bde77ac706d237dfca8
+PKG_BUILD_DIR:=$(BUILD_DIR)/upm-$(PKG_VERSION)
 
 CMAKE_INSTALL:=1
 PKG_USE_MIPS16:=0
@@ -32,15 +30,15 @@ include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
 UPM_MODULES:= \
 	a110x abp ad8232 adafruitms1438 adafruitss adc121c021 adis16448 ads1x15 adxl335 adxl345 \
-	adxrs610 am2315 apa102 apds9002 apds9930 at42qt1070 bh1750 biss0001 bma220 \
+	adxrs610 am2315 apa102 apds9002 apds9930 at42qt1070 bh1749 bh1750 bh1792 biss0001 bma220 \
 	bma250e bmg160 bmi160 bmm150 bmp280 bmpx8x bmx055 bno055 button buzzer cjq4435 collision \
 	cwlsxxa dfrec dfrorp dfrph ds1307 ds1808lc ds18b20 ds2413 ecezo ecs1030 \
 	ehr eldriver electromagnet emg enc03r flex gas gp2y0a gprs grove grovecollision groveehr \
 	groveeldriver groveelectromagnet groveemg grovegprs grovegsr grovelinefinder grovemd \
 	grovemoisture groveo2 grovescam grovespeaker groveultrasonic grovevdiv grovewater grovewfs \
 	gsr guvas12d h3lis331dl hcsr04 hdc1000 hdxxvxta hka5 hlg150h hm11 hmc5883l hmtrp hp20x \
-	ht9170 htu21d hx711 ili9341 ims ina132 interfaces isd1820 itg3200 jhd1313m1 joystick12 \
-	kxcjk1013 l298 l3gd20 lcd lcdks lcm1602 ldt0028 led lidarlitev3 light linefinder lis2ds12 \
+	ht9170 htu21d hx711 ili9341 ims ina132 interfaces isd1820 itg3200 jhd1313m1 joystick12 kx122 \
+	kxcjk1013 kxtj3 l298 l3gd20 lcd lcdks lcm1602 ldt0028 led lidarlitev3 light linefinder lis2ds12 \
 	lis3dh lm35 lol loudness lp8860 lpd8806 lsm303agr lsm303d lsm303dlh lsm6ds3h lsm6dsl lsm9ds0 \
 	m24lr64e mag3110 max30100 max31723 max31855 max44000 max44009 max5487 maxds3231m maxsonarez \
 	mb704x mcp2515 mcp9808 md mg811 mhz16 mic micsv89 mlx90614 mma7361 mma7455 mma7660 mma8x5x \
@@ -136,7 +134,13 @@ define UpmPackage/depends
   ifeq ($$(1),apa102)
     DEPENDS+=+libupm-utilities
   endif
+  ifeq ($(1),bh1749)
+    DEPENDS+=+libupm-utilities
+  endif
   ifeq ($$(1),bh1750)
+    DEPENDS+=+libupm-utilities
+  endif
+  ifeq ($(1),bh1792)
     DEPENDS+=+libupm-utilities
   endif
   ifeq ($$(1),bma250e)
@@ -205,6 +209,9 @@ define UpmPackage/depends
   ifeq ($$(1),jhd1313m1)
     DEPENDS+=+libupm-utilities +libupm-lcm1602
   endif
+  ifeq ($(1),kxtj3)
+    DEPENDS+=+libupm-utilities
+  endif
   ifeq ($$(1),lcm1602)
     DEPENDS+=+libupm-utilities
   endif
@@ -263,7 +270,7 @@ define UpmPackage/depends
     DEPENDS+=+libupm-utilities
   endif
   ifeq ($$(1),nmea_gps)
-    DEPENDS+=+libupm-utilities
+    DEPENDS+=+libupm-utilities +libatomic
   endif
   ifeq ($$(1),nunchuck)
     DEPENDS+=+libupm-utilities
