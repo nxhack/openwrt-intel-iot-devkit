@@ -54,8 +54,7 @@ UPM_MODULES:= \
 # (require libmraa firmata) curieimu
 
 CMAKE_OPTIONS=-DBUILDARCH=$(CONFIG_ARCH) \
-	-DNODE_EXECUTABLE=$(STAGING_DIR_HOSTPKG)/bin/node \
-	-DSWIG_DIR=$(STAGING_DIR_HOSTPKG)/bin
+	-DNODE_EXECUTABLE=$(STAGING_DIR_HOSTPKG)/bin/node
 
 define Package/libupm/Default
   SECTION:=libs
