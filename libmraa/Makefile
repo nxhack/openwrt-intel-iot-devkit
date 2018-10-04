@@ -31,8 +31,7 @@ include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
 CMAKE_OPTIONS=-DBUILDARCH=$(CONFIG_ARCH) \
 	-DENABLEEXAMPLES=0 \
-	-DNODE_EXECUTABLE=$(STAGING_DIR_HOSTPKG)/bin/node \
-	-DSWIG_DIR=$(STAGING_DIR_HOSTPKG)/bin
+	-DNODE_EXECUTABLE=$(STAGING_DIR_HOSTPKG)/bin/node
 
 TARGET_CFLAGS+=-I$(STAGING_DIR)/usr/include/node
 
