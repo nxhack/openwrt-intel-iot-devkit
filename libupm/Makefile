@@ -208,7 +208,7 @@ define UpmPackage/depends
   ifeq ($$(1),jhd1313m1)
     DEPENDS+=+libupm-utilities +libupm-lcm1602
   endif
-  ifeq ($(1),kxtj3)
+  ifeq ($$(1),kxtj3)
     DEPENDS+=+libupm-utilities
   endif
   ifeq ($$(1),lcm1602)
