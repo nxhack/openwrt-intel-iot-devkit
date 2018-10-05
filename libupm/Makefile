@@ -100,7 +100,7 @@ endef
 
 define Package/libupm/install/Default-python
 	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/pyupm_$(2).py \
+	$(CP) $(PKG_BUILD_DIR)/src/$(2)/python$(PYTHON_VERSION)/pyupm_$(2).py \
 		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/_pyupm_$(2).so \
 		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/ ;
@@ -108,7 +108,7 @@ endef
 
 define Package/libupm/install/Default-python3
 	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/pyupm_$(2).py \
+	$(CP) $(PKG_BUILD_DIR)/src/$(2)/python$(PYTHON3_VERSION)/pyupm_$(2).py \
 		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/_pyupm_$(2).so \
 		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/ ;
