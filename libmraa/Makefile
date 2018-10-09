@@ -26,8 +26,8 @@ PKG_LICENSE_FILES:=COPYING
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
-include $(TOPDIR)/feeds/packages/lang/python/python-package.mk
-include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
+$(call include_mk, python-package.mk)
+$(call include_mk, python3-package.mk)
 
 CMAKE_OPTIONS=-DENABLEEXAMPLES=0
 
