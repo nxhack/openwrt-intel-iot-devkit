@@ -29,8 +29,7 @@ include $(INCLUDE_DIR)/cmake.mk
 include $(TOPDIR)/feeds/packages/lang/python/python-package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
-CMAKE_OPTIONS=-DBUILDARCH=$(CONFIG_ARCH) \
-	-DENABLEEXAMPLES=0
+CMAKE_OPTIONS=-DENABLEEXAMPLES=0
 
 TARGET_CFLAGS+=-I$(STAGING_DIR)/usr/include/node
 
