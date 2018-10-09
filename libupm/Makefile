@@ -53,9 +53,6 @@ UPM_MODULES:= \
 # (require libbacnet) tb7300 t8100 e50hx bacnetmstp
 # (require libmraa firmata) curieimu
 
-CMAKE_OPTIONS=-DBUILDARCH=$(CONFIG_ARCH) \
-	-DNODE_EXECUTABLE=$(STAGING_DIR_HOSTPKG)/bin/node
-
 define Package/libupm/Default
   SECTION:=libs
   CATEGORY:=Libraries
