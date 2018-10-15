@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libupm
 PKG_VERSION:=1.7.0
-PKG_RELEASE=1
+PKG_RELEASE=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/intel-iot-devkit/upm/tar.gz/v$(PKG_VERSION)?
@@ -49,9 +49,8 @@ UPM_MODULES:= \
 	sx1276 sx6119 t6713 ta12200 tca9548a tcs3414cs tcs37727 teams temperature \
 	tex00 th02 tm1637 tmp006 tsl2561 ttp223 uartat uln200xa ultrasonic urm37 utilities vdiv \
 	veml6070 water waterlevel wfs wheelencoder wt5001 xbee yg1006 zfm20 \
-	vcap t3311 hwxpxx h803x ozw
+	vcap t3311 hwxpxx h803x ozw curieimu
 # (require libbacnet) tb7300 t8100 e50hx bacnetmstp
-# (require libmraa firmata) curieimu
 
 define Package/libupm/Default
   SECTION:=libs

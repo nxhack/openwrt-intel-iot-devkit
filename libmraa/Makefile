@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libmraa
 PKG_VERSION:=2.0.0
-PKG_RELEASE=1
+PKG_RELEASE=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/intel-iot-devkit/mraa/tar.gz/v$(PKG_VERSION)?
@@ -29,7 +29,8 @@ include $(INCLUDE_DIR)/cmake.mk
 include $(TOPDIR)/feeds/packages/lang/python/python-package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
-CMAKE_OPTIONS=-DENABLEEXAMPLES=0
+CMAKE_OPTIONS=-DENABLEEXAMPLES=0 \
+	-DFIRMATA=ON
 
 TARGET_CFLAGS+=-I$(STAGING_DIR)/usr/include/node
 
