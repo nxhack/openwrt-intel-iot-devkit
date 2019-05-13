@@ -1,6 +1,6 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -225,14 +225,7 @@
+@@ -231,14 +231,7 @@
  set (LIB_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}" CACHE PATH "Installation path for libraries")
  
  # Make a version file containing the current version from git.
