@@ -33,9 +33,7 @@ UPM_MODULES:= \
 	adxrs610 am2315 apa102 apds9002 apds9930 at42qt1070 bh1749 bh1750 bh1792 biss0001 bma220 \
 	bma250e bmg160 bmi160 bmm150 bmp280 bmpx8x bmx055 bno055 button buzzer cjq4435 collision \
 	cwlsxxa dfrec dfrorp dfrph ds1307 ds1808lc ds18b20 ds2413 ecezo ecs1030 \
-	ehr eldriver electromagnet emg enc03r flex gas gp2y0a gprs grove grovecollision groveehr \
-	groveeldriver groveelectromagnet groveemg grovegprs grovegsr grovelinefinder grovemd \
-	grovemoisture groveo2 grovescam grovespeaker groveultrasonic grovevdiv grovewater grovewfs \
+	ehr eldriver electromagnet emg enc03r flex gas gp2y0a gprs \
 	gsr guvas12d h3lis331dl hcsr04 hdc1000 hdxxvxta hka5 hlg150h hm11 hmc5883l hmtrp hp20x \
 	ht9170 htu21d hx711 ili9341 ims ina132 interfaces isd1820 itg3200 jhd1313m1 joystick12 kx122 \
 	kxcjk1013 kxtj3 l298 l3gd20 lcd lcdks lcm1602 ldt0028 led lidarlitev3 light linefinder lis2ds12 \
@@ -49,7 +47,7 @@ UPM_MODULES:= \
 	sx1276 sx6119 t6713 ta12200 tca9548a tcs3414cs tcs37727 teams temperature \
 	tex00 th02 tm1637 tmp006 tsl2561 ttp223 uartat uln200xa ultrasonic urm37 utilities vdiv \
 	veml6070 water waterlevel wfs wheelencoder wt5001 xbee yg1006 zfm20 \
-	vcap t3311 hwxpxx h803x ozw curieimu
+	vcap t3311 hwxpxx h803x ozw curieimu 2jciebu01_ble 2jciebu01_usb
 # (require libbacnet) tb7300 t8100 e50hx bacnetmstp
 
 define Package/libupm/Default
