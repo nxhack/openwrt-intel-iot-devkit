@@ -4,7 +4,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=tinyb
+PKG_NAME:=libtinyb
 PKG_VERSION:=0.5.1
 PKG_RELEASE=1
 
@@ -24,11 +24,11 @@ PKG_LICENSE_FILES:=COPYING
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-define Package/tinyb/description
+define Package/libtinyb/description
   This project aims to create clean, modern and easy to use Bluetooth LE API. TinyB exposes the BLE GATT API for C++, Java and other languages, using BlueZ over DBus.
 endef
 
-define Package/tinyb
+define Package/libtinyb
   SECTION:=libs
   CATEGORY:=Libraries
   SUBMENU:=IoT
@@ -37,11 +37,9 @@ define Package/tinyb
   DEPENDS:=+glib2
 endef
 
-define Package/tinyb/install
+define Package/libtinyb/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/tinyb.so* $(1)/usr/lib/
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/tinyb-* $(1)/usr/bin/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libtinyb.so* $(1)/usr/lib/
 endef
 
-$(eval $(call BuildPackage,tinyb))
+$(eval $(call BuildPackage,libtinyb))
