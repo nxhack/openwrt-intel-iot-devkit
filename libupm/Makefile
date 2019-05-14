@@ -95,18 +95,32 @@ endef
 
 define Package/libupm/install/Default-python
 	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm
+ifeq ($(2), interfaces)
+	$(CP) $(CMAKE_BINARY_DIR)/$(2)/python$(PYTHON_VERSION)/pyupm_$(2).py \
+		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/_pyupm_$(2).so \
+		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/ ;
+else
 	$(CP) $(CMAKE_BINARY_DIR)/src/$(2)/python$(PYTHON_VERSION)/pyupm_$(2).py \
 		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/_pyupm_$(2).so \
 		$(1)/usr/lib/python$(PYTHON_VERSION)/site-packages/upm/ ;
+endif
 endef
 
 define Package/libupm/install/Default-python3
 	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm
+ifeq ($(2), interfaces)
+	$(CP) $(CMAKE_BINARY_DIR)/$(2)/python$(PYTHON3_VERSION)/pyupm_$(2).py \
+		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/_pyupm_$(2).so \
+		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/ ;
+else
 	$(CP) $(CMAKE_BINARY_DIR)/src/$(2)/python$(PYTHON3_VERSION)/pyupm_$(2).py \
 		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/_pyupm_$(2).so \
 		$(1)/usr/lib/python$(PYTHON3_VERSION)/site-packages/upm/ ;
+endif
 endef
 
 define Package/libupm/install
