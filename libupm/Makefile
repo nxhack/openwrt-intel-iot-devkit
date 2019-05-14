@@ -336,7 +336,7 @@ define UpmPackage/depends
     DEPENDS+=+libmodbus
   endif
   ifeq ($$(1),2jciebu01_ble)
-    DEPENDS+=+libtinyb
+    DEPENDS+=+libtinyb +libupm-2jciebu01_usb
   endif
 endef
 
