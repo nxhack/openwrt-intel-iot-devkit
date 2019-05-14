@@ -18,6 +18,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/mraa-$(PKG_VERSION)
 
 PKG_BUILD_DEPENDS:=node swig/host node/host
 CMAKE_INSTALL:=1
+CMAKE_BINARY_SUBDIR:=build
 PKG_USE_MIPS16:=0
 
 PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>, Hirokazu MORIKAWA <morikw2@gmail.com>
