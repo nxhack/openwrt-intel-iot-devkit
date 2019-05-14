@@ -48,7 +48,8 @@ UPM_MODULES:= \
 	sx1276 sx6119 t6713 ta12200 tca9548a tcs3414cs tcs37727 teams temperature \
 	tex00 th02 tm1637 tmp006 tsl2561 ttp223 uartat uln200xa ultrasonic urm37 utilities vdiv \
 	veml6070 water waterlevel wfs wheelencoder wt5001 xbee yg1006 zfm20 \
-	vcap t3311 hwxpxx h803x ozw curieimu 2jciebu01_ble 2jciebu01_usb
+	vcap t3311 hwxpxx h803x ozw curieimu
+# 2jciebu01_ble 2jciebu01_usb
 # (require libbacnet) tb7300 t8100 e50hx bacnetmstp
 
 define Package/libupm/Default
