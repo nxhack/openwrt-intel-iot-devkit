@@ -56,7 +56,7 @@ define Package/libupm/Default
   CATEGORY:=Libraries
   SUBMENU:=IoT
   URL:=https://github.com/intel-iot-devkit/upm
-  DEPENDS:=+libmraa +librt
+  DEPENDS:=@!arc @!armeb @!ppc +libmraa +librt
 endef
 
 define Package/libupm/Default/description
