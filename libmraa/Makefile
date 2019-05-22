@@ -41,7 +41,6 @@ define Package/libmraa/Default
   SUBMENU:=IoT
   TITLE:=Intel IoT lowlevel IO library
   URL:=https://github.com/intel-iot-devkit/mraa
-  DEPENDS:=@!arc @!armeb @!ppc
 endef
 
 define Package/libmraa/Default/description
@@ -55,7 +54,7 @@ endef
 define Package/libmraa
   $(call Package/libmraa/Default)
   TITLE:=Intel IoT lowlevel IO C/C++ library
-  DEPENDS+=+libstdcpp +libjson-c
+  DEPENDS:=+libstdcpp +libjson-c @!arc @!armeb @!ppc
 endef
 
 define Package/libmraa/description
@@ -67,7 +66,7 @@ endef
 define Package/libmraa-node
   $(call Package/libmraa/Default)
   TITLE:=Intel IoT lowlevel IO Node.js library
-  DEPENDS+=+libmraa +node
+  DEPENDS:=+libmraa +node
 endef
 
 define Package/libmraa-node/description
@@ -79,7 +78,7 @@ endef
 define Package/libmraa-python
   $(call Package/libmraa/Default)
   TITLE:=Intel IoT lowlevel IO Python library
-  DEPENDS+=+libmraa +python-light
+  DEPENDS:=+libmraa +python-light
 endef
 
 define Package/libmraa-python/description
@@ -91,7 +90,7 @@ endef
 define Package/libmraa-python3
   $(call Package/libmraa/Default)
   TITLE:=Intel IoT lowlevel IO Python3 library
-  DEPENDS+=+libmraa +python3-light
+  DEPENDS:=+libmraa +python3-light
 endef
 
 define Package/libmraa-python3/description
