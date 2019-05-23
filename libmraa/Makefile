@@ -54,7 +54,7 @@ endef
 define Package/libmraa
   $(call Package/libmraa/Default)
   TITLE:=Intel IoT lowlevel IO C/C++ library
-  DEPENDS:=+libstdcpp +libjson-c @!arc @!armeb @!ppc
+  DEPENDS:=+libstdcpp +libjson-c @!arc @!armeb @!powerpc
 endef
 
 define Package/libmraa/description

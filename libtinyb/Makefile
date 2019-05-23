@@ -34,7 +34,7 @@ define Package/libtinyb
   SUBMENU:=IoT
   TITLE:=Tiny Bluetooth LE Library
   URL:=https://github.com/intel-iot-devkit/tinyb
-  DEPENDS:=@!arc @!armeb @!ppc +libstdcpp +glib2
+  DEPENDS:=@!arc @!armeb @!powerpc +libstdcpp +glib2
 endef
 
 define Package/libtinyb/install
