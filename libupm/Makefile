@@ -16,13 +16,14 @@ PKG_SOURCE_URL:=https://codeload.github.com/intel-iot-devkit/upm/tar.gz/v$(PKG_V
 PKG_HASH:=7dd2f4165b71e071d100b58d6a392f3cf57b0f257c82ffabf49e931b5ed6bc23
 PKG_BUILD_DIR:=$(BUILD_DIR)/upm-$(PKG_VERSION)
 
-CMAKE_INSTALL:=1
-CMAKE_BINARY_SUBDIR:=build
-PKG_USE_MIPS16:=0
-
 PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>, Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
+
+CMAKE_INSTALL:=1
+CMAKE_BINARY_SUBDIR:=build
+PKG_USE_MIPS16:=0
+PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
@@ -56,7 +57,7 @@ define Package/libupm/Default
   CATEGORY:=Libraries
   SUBMENU:=IoT
   URL:=https://github.com/intel-iot-devkit/upm
-  DEPENDS:=@!arc @!armeb @!powerpc +libmraa +librt
+  DEPENDS:=+libmraa +librt
 endef
 
 define Package/libupm/Default/description

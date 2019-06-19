@@ -13,13 +13,13 @@ PKG_SOURCE_URL:=https://codeload.github.com/intel-iot-devkit/tinyb/tar.gz/v$(PKG
 PKG_HASH:=1d27b5f3b05c5b7a9f29f3d717164162607aa94b8e15ba2a9aaa3884908a2da1
 PKG_BUILD_DIR:=$(BUILD_DIR)/tinyb-$(PKG_VERSION)
 
-CMAKE_INSTALL:=1
-CMAKE_BINARY_SUBDIR:=build
-PKG_USE_MIPS16:=0
-
 PKG_MAINTAINER:=Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=COPYING
+
+CMAKE_INSTALL:=1
+CMAKE_BINARY_SUBDIR:=build
+PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
