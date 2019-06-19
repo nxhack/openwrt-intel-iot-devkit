@@ -18,13 +18,13 @@ PKG_SOURCE_VERSION:=fbb7d9232067eac3f4508a37a8f7ea0c4fcebacb
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_MIRROR_HASH:=104420fc72b80bb6493ddc53014597abc0d455f965ebd6fc7f9be26aa5685ffd
 
-PKG_BUILD_DEPENDS:=node python/host swig/host node/host
-CMAKE_INSTALL:=1
-PKG_USE_MIPS16:=0
-
 PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=COPYING
+
+PKG_BUILD_DEPENDS:=node python/host swig/host node/host
+CMAKE_INSTALL:=1
+PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
