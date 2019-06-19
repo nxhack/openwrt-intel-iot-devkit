@@ -16,12 +16,12 @@ PKG_SOURCE_URL:=https://codeload.github.com/intel-iot-devkit/upm/tar.gz/v$(PKG_V
 PKG_HASH:=b253742b01146f4b86e20714aa24e75ca1e9d46629eab9aa8db070ce94cf3619
 PKG_BUILD_DIR:=$(BUILD_DIR)/upm-$(PKG_VERSION)
 
-CMAKE_INSTALL:=1
-PKG_USE_MIPS16:=0
-
 PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>, Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
+
+CMAKE_INSTALL:=1
+PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk

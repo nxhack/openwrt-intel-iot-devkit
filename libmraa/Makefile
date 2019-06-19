@@ -16,13 +16,13 @@ PKG_SOURCE_URL:=https://codeload.github.com/intel-iot-devkit/mraa/tar.gz/v$(PKG_
 PKG_HASH:=c9f3c3741c6894be5516adecfe6b55a38960b6718b268a9afd645f7955e5a716
 PKG_BUILD_DIR:=$(BUILD_DIR)/mraa-$(PKG_VERSION)
 
-PKG_BUILD_DEPENDS:=node swig/host node/host
-CMAKE_INSTALL:=1
-PKG_USE_MIPS16:=0
-
 PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>, Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=COPYING
+
+PKG_BUILD_DEPENDS:=node swig/host node/host
+CMAKE_INSTALL:=1
+PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
