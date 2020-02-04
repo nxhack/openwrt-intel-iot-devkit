@@ -12,7 +12,7 @@ PKG_VERSION:=2.0.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://codeload.github.com/intel-iot-devkit/upm/tar.gz/v$(PKG_VERSION)?
+PKG_SOURCE_URL:=https://codeload.github.com/eclipse/upm/tar.gz/v$(PKG_VERSION)?
 PKG_HASH:=7dd2f4165b71e071d100b58d6a392f3cf57b0f257c82ffabf49e931b5ed6bc23
 PKG_BUILD_DIR:=$(BUILD_DIR)/upm-$(PKG_VERSION)
 
@@ -57,7 +57,7 @@ define Package/libupm/Default
   SECTION:=libs
   CATEGORY:=Libraries
   SUBMENU:=IoT
-  URL:=https://github.com/intel-iot-devkit/upm
+  URL:=https://projects.eclipse.org/projects/iot.upm
   DEPENDS:=+libmraa +librt
 endef
 
@@ -65,13 +65,11 @@ define Package/libupm/Default/description
   UPM is a high level repository that provides software drivers for a wide variety
 of commonly used sensors and actuators. These software drivers interact with the
 underlying hardware platform through calls to MRAA APIs.
-  MRAA that allows you to use various sensors on platforms such as the Intel Galileo,
-Intel Edison, Minnowboard MAX and others.
 endef
 
 define Package/libupm
   $(call Package/libupm/Default)
-  TITLE:=Intel IoT sensor library - Full
+  TITLE:=Eclipse UPM sensor library - Full
   DEPENDS+=+libjpeg +libmodbus +openzwave
   DEPENDS+= $(foreach module, $(UPM_MODULES), +libupm-$(module))
   DEPENDS+= $(foreach module, $(UPM_MODULES), +libupm-$(module)-node)
